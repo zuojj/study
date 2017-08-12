@@ -1,0 +1,13 @@
+{
+  "name": "website.scrap",
+  "version": "1.0.0",
+  "description": "website scraping demo",
+  "main": "index.js",
+  "author": "zuojj",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
+  }
+}
