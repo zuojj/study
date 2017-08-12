@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="fis3">
+<meta name="description" content="fis3">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+<body>
+
+<div id="abc">返回</div>
+
+<script type="text/javascript">
+    document.getElementById('abc').onclick = function() {
+        history.back()
+    }
+
+    window.onpopstate = function(e){
+        alert('xxx');
+        if(e.state) {
+            alert(e.state.url);
+        }
+    }
+</script> 
+</body>
+</html>

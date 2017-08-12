@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="fis3">
+<meta name="description" content="fis3">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Demo</title>
+<link rel="stylesheet" type="text/css" href="/static/css/index.css">
+</head>
+<body>
+    <div class="container">
+        <ul class="ulist">
+            <li class="result">
+                <a href="detail.html?id=1">对法拉数据的弗拉设计费</a>
+                <p>浪费大家爱是快乐的房间啊</p>
+                <div class="suggest" style="display:none">为您推荐：xxxxxxxxxxxxxxxxxx</div>
+            </li>
+            <li class="result">
+                <a href="detail.html?id=2">对法拉数据的弗拉设计费</a>
+                <p>浪费大家爱是快乐的房间啊</p>
+                <div class="suggest" style="display:none">为您推荐：xxxxxxxxxxxxxxxxxx</div>
+            </li>
+            <li class="result">
+                <a href="detail.html?id=3">对法拉数据的弗拉设计费</a>
+                <p>浪费大家爱是快乐的房间啊</p>
+                <div class="suggest" style="display:none">为您推荐：xxxxxxxxxxxxxxxxxx</div>
+            </li>
+            <li class="result">
+                <a href="detail.html?id=4">对法拉数据的弗拉设计费</a>
+                <p>浪费大家爱是快乐的房间啊</p>
+                <div class="suggest" style="display:none">为您推荐：xxxxxxxxxxxxxxxxxx</div>
+            </li>
+        </ul>
+        <input type="button" value="下一页" id="btn-next-page" data-page="2">
+        <input type="button" value="Clear LocalStorage" id="btn-clear">
+    </div>
+    <script type="text/javascript" src="/static/js/zepto.min.v1.1.2.js"></script>
+    <script type="text/javascript" src="/static/js/index.js"></script>
+</body>
+</html>
