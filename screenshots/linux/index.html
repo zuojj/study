@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Linux+Nginx+PHP - Screenshots</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+<div class="control">
+    <form id="form">
+        <div class="control-item">
+            <label for="url">PageURL:</label>
+            <input type="text" name="url" id="url">
+        </div>
+        <div class="control-item">
+            <label for="width">Width:</label>
+            <input type="text" name="width" id="width">
+        </div>
+        <div class="control-item">
+            <label for="height">Height:</label>
+            <input type="text" name="height" id="height">
+        </div>
+        <div class="control-item">
+            <label for="format">保存格式:</label>
+            <select name="format">
+                <option value="jpeg" selected>JPEG</option>
+                <option value="png">PNG</option>
+                <option value="bmp">BMP</option>
+                <option value="pdf">PDF</option>
+            </select>
+        </div>
+        <div class="control-item">
+            <label for="quality">图片质量:</label>
+            <select name="quality">
+                <option value="50">50</option>
+                <option value="75" selected>75</option>
+                <option value="100">100</option>
+            </select>
+        </div>
+        <div class="control-item btn-group">
+            <input type="submit" value="提交">
+            <input type="reset" value="重置">
+        </div>
+    </form>
+</div>
+<div class="result"></div>
+<div id="mask" class="mask dn"></div>
+<div id="info" class="info dn"></div>
+<script type="text/javascript" src="../js/jquery-3.1.0.min.js"></script>  
+<script type="text/javascript">
+    (function(window, $, undefined) {
+        $('#url').val('http://m.sogou.com/web/searchList.jsp?uID=DkO3-XuKwrK-pOzQ&v=5&from=index&w=1274&t=1471932255122&s_t=1471932258053&s_from=index&keyword=sogou&pg=webSearchList&sourceid=sugg&sugoq=&sugn=0');
+        $('#width').val($(window).width());
+        $('#height').val($(window).height());
+
+        /**
+         * [toast 提示信息]
+         * @param  {[type]} bool [显示与隐藏]
+         * @param  {[type]} info [信息]
+         * @return {[type]}      [description]
+         */
+        function toast(bool, info) {
+            info = info || '请求处理中，请稍后...';
+            $('#mask')[bool ? 'show' : 'hide']();
+            $('#info').html(info)[bool ? 'show' : 'hide']();
+        }
+
+        $('#form').on('submit', function(e) {
+            e.preventDefault();
+            // 启用loading
+            toast(true);
+
+            $.ajax({
+                url: './post.php',
+                data: $('#form').serialize(),
+                dataType: 'json'
+            })
+            .done(function(data) {
+                var html = [];
+                if(data) {
+                    if(data.status == 1) {
+                        toast(true, '请求成功');    
+
+                        html.push( data['format'] === 'pdf' ? ('<a href="'+ data.path +'" target="_blank">'+ data.path +'</a>') : ('<img src="'+ data.path +'">') );
+                    }else {
+                        var info = Array.isArray(data.info) ? data.info : [data.info];
+                        for(var i = 0, ilen = info.length; i < ilen; i ++) {
+                            html.push('<p class="red">' + info[i] + '</p>');
+                        }
+                    }
+
+                    $('.result').html(html.join('\n'));
+                }else {
+                    toast(true, '<span class="red">请求失败，请重试</span>');
+                }
+            })
+            .fail(function() {
+                toast(true, '<span class="red">请求失败，请重试</span>');
+            })
+            .always(function() {
+                // 关闭loading
+                setTimeout(function() {
+                    toast(false);
+                }, 1000);
+            });
+        });
+    })(window, jQuery);
+</script>
+</body>
+</html>

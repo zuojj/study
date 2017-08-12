@@ -1,0 +1,28 @@
+@import 'base';
+
+
+.index {
+    width: 960px;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    line-height: 40px;
+
+    &-header {
+        text-align: center;
+        background-color: blue;
+        height: 40px;
+        color: #fff;
+    }
+
+    &-body {
+        height: 200px;
+        background: #ccc url(./bg.png) repeat 0 0;
+    }
+
+
+    &-footer {
+        height: 40px;
+        background-color: #f00;
+    }
+}

@@ -1,0 +1,10 @@
+@import 'base.css';
+
+header {
+    text-align: center;
+    background-color: blue;
+    width: 960px;
+    margin: 0 auto;
+    line-height: 30px;
+    color: #fff;
+}
