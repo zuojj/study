@@ -1,0 +1,8 @@
+{
+  "name": "pm2.demos",
+  "version": "1.0.0",
+  "description": "pm2 demos",
+  "main": "index.js",
+  "author": "zuojj",
+  "license": "MIT"
+}

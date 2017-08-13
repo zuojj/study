@@ -10,4 +10,5 @@
 | weibo.xiaobing           | 模拟微博登录与微软小冰会话实例    |
 | webpack.demos            | webpack学习相关实例汇总           |
 | website.scrap            | 网站抓取DEMO                      |
+| pm2.demos                | 任务执行器PM2学习实例             |
 
