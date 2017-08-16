@@ -11,4 +11,5 @@
 | webpack.demos            | webpack学习相关实例汇总           |
 | website.scrap            | 网站抓取DEMO                      |
 | pm2.demos                | 任务执行器PM2学习实例             |
+| vue.bms                  | 基于Vue全生态实现的业务管理系统   |
 
