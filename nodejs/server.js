@@ -5,7 +5,9 @@ const bodyParser = require('body-parser')
 
 app.use(require('morgan')('dev'));
 
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({
+    extended: false
+}))
 app.use(bodyParser.json());
 
 app.set('views', './views');
@@ -16,10 +18,7 @@ app.get('/', (req, res) => {
     res.type('text/html');
     res.render('index', {
         title: 'home',
-        body: {
-            title: 'home',
-            body: 'Hello World'
-        }
+        body: 'Hello World'
     });
 });
 let form = {};
@@ -36,15 +35,18 @@ app.get('/form', (req, res) => {
 
 app.post('/submit', (req, res) => {
     res.type('text/plain');
-    let {username, userpass} = req.body;
+    let {
+        username,
+        userpass
+    } = req.body;
 
     form = {
         username,
         userpass
     }
-    if(username && userpass && username.trim() && userpass.trim()) {
+    if (username && userpass && username.trim() && userpass.trim()) {
         res.redirect(303, '/success')
-    }else {
+    } else {
         // res.redirect(303, '/error')
     }
 });

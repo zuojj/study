@@ -10,7 +10,7 @@ if (cluster.isMaster) {
     for (let i = 0; i < cupsNum; i++) {
         let worker = cluster.fork();
         // console.log(`Cluster: worker ${worker.id} started`);
-    }
+    }​
 
     cluster.on('exit', (worker, code, signal) => {
         console.log(`worker ${worker.process.pid} died`);
