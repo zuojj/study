@@ -1,5 +1,6 @@
 # 调研及学习汇总
 
+<<<<<<< HEAD
 | folder                                           | description                                            |
 | ------------------------------------------------ | ------------------------------------------------------ |
 | MERN                                             | MongoDB+Express+React+Node.js实战                      |
@@ -15,4 +16,22 @@
 | vue.bms                                          | 基于Vue全生态实现的业务管理系统                        |
 | [gtop](https://www.npmjs.com/package/gtop)       | System monitoring dashboard for terminal               |
 | [facenet](https://www.npmjs.com/package/facenet) | A TensorFlow backed FaceNet implementation for Node.js |
+=======
+| Folder                   | Description                                            |
+| ------------------------ | ------------------------------------------------------ |
+| vue-pwa-demo             | vuejs-templates/pwa demo                               |
+| gtop                     | System monitoring dashboard for terminal               |
+| facenet                  | A TensorFlow backed FaceNet implementation for Node.js |
+| pm2-demo                 | PM2 study                                              |
+| history.back             | Ajax request and retreat status hold                   |
+| performance.optimization | Web performance optimization                           |
+| screenshots              | Webpage screenshot                                     |
+| speech.recognition       | Speech and recognition api learning                    |
+| web.audio                | Web audio api learning                                 |
+| webpack.demos            | Webpack learning                                       |
+| website.scrap            | Website scrap                                          |
+| css-grid-layout-tutorial | Introduction to css layout                             |
+
+
+>>>>>>> e4345f23652ec97a0ff3779c37aef7c38ce30185
 
