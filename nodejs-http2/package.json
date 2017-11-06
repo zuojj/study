@@ -1,0 +1,11 @@
+{
+  "name": "nodejs-http2",
+  "version": "1.0.0",
+  "description": "http2 module study based on nodejs",
+  "main": "index.js",
+  "author": "zuojj",
+  "license": "MIT",
+  "dependencies": {
+    "mime-types": "^2.1.17"
+  }
+}
