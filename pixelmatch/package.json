@@ -1,0 +1,12 @@
+{
+  "name": "pixelmatch",
+  "version": "1.0.0",
+  "description": "pixel match",
+  "main": "index.js",
+  "author": "zuojj",
+  "license": "MIT",
+  "dependencies": {
+    "pixelmatch": "^4.0.2",
+    "pngjs": "^3.3.0"
+  }
+}
