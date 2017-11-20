@@ -1,0 +1,8 @@
+{
+  "name": "text-to-image",
+  "version": "1.0.0",
+  "description": "text to image",
+  "main": "index.js",
+  "author": "zuojj",
+  "license": "MIT"
+}

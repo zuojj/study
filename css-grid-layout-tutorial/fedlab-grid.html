@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+         :root {
+            --gutter-width: 1rem;
+            --outer-margin: 2rem;
+            --gutter-compensation: calc((var(--gutter-width) * 0.5) * -1);
+            --half-gutter-width: calc((var(--gutter-width) * 0.5));
+            --xs-min: 30;
+            --sm-min: 48;
+            --md-min: 64;
+            --lg-min: 75;
+            --screen-xs-min: var(--xs-min)em;
+            --screen-sm-min: var(--sm-min)em;
+            --screen-md-min: var(--md-min)em;
+            --screen-lg-min: var(--lg-min)em;
+            --container-sm: calc(var(--sm-min) + var(--gutter-width));
+            --container-md: calc(var(--md-min) + var(--gutter-width));
+            --container-lg: calc(var(--lg-min) + var(--gutter-width));
+        }
+
+        @custom-media --sm-viewport only screen and (min-width: 480px);
+        @custom-media --md-viewport only screen and (min-width: 750px);
+        @custom-media --lg-viewport only screen and (min-width: 1095px);
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .fedlab-grid {
+            display: grid;
+            /* Display as a Grid */
+            grid-template-columns: repeat(auto-fit, minmax(345px, 1fr));
+            /* repeat = as many times as you can fit */
+            /* auto-fit = fit as many fedlab-grid-items on the line as possible, go bigger if you need to */
+            /*minmax = (min size, max size) = the minimum size the column should be is 200px, but if there's space then give them all 1fr of that width. */
+            grid-column-gap: 20px;
+            grid-row-gap: 20px;
+
+            margin: 0 auto;
+        }
+
+        .fedlab-grid-item {
+            background-color: coral;
+            transition: all .3s linear;
+        }
+
+        .fedlab-grid-thumb {
+            padding-bottom: 37.5%;
+            background-color: #f0f;
+        }
+        .container {
+            padding: 20px;
+        }
+        @media (--sm-viewport) {
+            .fedlab-grid {
+                width: 480px;
+            }
+        }
+
+        @media (--md-viewport) {
+            .fedlab-grid {
+                width: 750px;
+            }
+        }
+        @media (--lg-viewport) {
+            .fedlab-grid {
+                width: 1095px;
+            }
+            .container {
+                padding: 30px;
+            }
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="fedlab-grid">
+            <div class="fedlab-grid-item">
+                <div class="fedlab-grid-thumb"></div>
+            </div>
+            <div class="fedlab-grid-item">
+                <div class="fedlab-grid-thumb"></div>
+            </div>
+            <div class="fedlab-grid-item">
+                <div class="fedlab-grid-thumb"></div>
+            </div>
+            <div class="fedlab-grid-item">
+                <div class="fedlab-grid-thumb"></div>
+            </div>
+            <div class="fedlab-grid-item">
+                <div class="fedlab-grid-thumb"></div>
+            </div>
+            <div class="fedlab-grid-item">
+                <div class="fedlab-grid-thumb"></div>
+            </div>
+            <div class="fedlab-grid-item">
+                <div class="fedlab-grid-thumb"></div>
+            </div>
+            <div class="fedlab-grid-item">
+                <div class="fedlab-grid-thumb"></div>
+            </div>
+            <div class="fedlab-grid-item">
+                <div class="fedlab-grid-thumb"></div>
+            </div>
+            <div class="fedlab-grid-item">
+                <div class="fedlab-grid-thumb"></div>
+            </div>
+            <div class="fedlab-grid-item">
+                <div class="fedlab-grid-thumb"></div>
+            </div>
+            <div class="fedlab-grid-item">
+                <div class="fedlab-grid-thumb"></div>
+            </div>
+            <div class="fedlab-grid-item">
+                <div class="fedlab-grid-thumb"></div>
+            </div>
+            <div class="fedlab-grid-item">
+                <div class="fedlab-grid-thumb"></div>
+            </div>
+            <div class="fedlab-grid-item">
+                <div class="fedlab-grid-thumb"></div>
+            </div>
+            <div class="fedlab-grid-item">
+                <div class="fedlab-grid-thumb"></div>
+            </div>
+            <div class="fedlab-grid-item">
+                <div class="fedlab-grid-thumb"></div>
+            </div>
+            <div class="fedlab-grid-item">
+                <div class="fedlab-grid-thumb"></div>
+            </div>
+            <div class="fedlab-grid-item">
+                <div class="fedlab-grid-thumb"></div>
+            </div>
+            <div class="fedlab-grid-item">
+                <div class="fedlab-grid-thumb"></div>
+            </div>
+            <div class="fedlab-grid-item">
+                <div class="fedlab-grid-thumb"></div>
+            </div>
+            <div class="fedlab-grid-item">
+                <div class="fedlab-grid-thumb"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
