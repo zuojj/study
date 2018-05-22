@@ -16,3 +16,4 @@
 | [gtop](https://www.npmjs.com/package/gtop)       | System monitoring dashboard for terminal               |
 | [facenet](https://www.npmjs.com/package/facenet) | A TensorFlow backed FaceNet implementation for Node.js |
 | socket.io                                        | socket.io demo                                         |
+| tail2kafka                                       | tail2kafka demo                                        |

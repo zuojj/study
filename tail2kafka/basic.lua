@@ -1,0 +1,10 @@
+file  = "/search/odin/www/logs/synthesis-access-%Y-%m-%d_00-00.log"
+topic = "search_translate_synthesis_log"
+rotatedelay = 5
+autocreat = false
+autoparti = true
+startpos = "LOG_START"
+withhost = false
+fileWithTimeFormat = true 
+-- autonl  = false
+-- rawcopy = true
