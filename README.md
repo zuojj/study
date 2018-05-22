@@ -1,4 +1,4 @@
-# 调研及学习汇总
+# 调研及学习 DEMO
 
 | folder                                           | description                                            |
 | ------------------------------------------------ | ------------------------------------------------------ |
@@ -15,4 +15,4 @@
 | vue.bms                                          | 基于Vue全生态实现的业务管理系统                        |
 | [gtop](https://www.npmjs.com/package/gtop)       | System monitoring dashboard for terminal               |
 | [facenet](https://www.npmjs.com/package/facenet) | A TensorFlow backed FaceNet implementation for Node.js |
-
+| socket.io                                        | socket.io demo                                         |
