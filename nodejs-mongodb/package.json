@@ -1,0 +1,11 @@
+{
+  "name": "nodejs-mongodb",
+  "version": "1.0.0",
+  "description": "nodejs + mongodb",
+  "main": "index.js",
+  "author": "zuojj",
+  "license": "MIT",
+  "dependencies": {
+    "mongodb": "^2.2.33"
+  }
+}

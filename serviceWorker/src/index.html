@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Service Worker offline demo</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <h3>消息队列</h3>
+        <ul id="messagelist" class="ulist"></ul>
+        <div class="form">
+            <input type="text" placeholder="请输入消息">
+            <input type="button" value="发送" id="btn-send">
+        </div>
+        <div class="checkbox">
+            <input type="checkbox" id="ck_sw" checked>
+            <label for="ck_sw">启用ServiceWorker缓存</label>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
