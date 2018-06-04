@@ -1,0 +1,11 @@
+{
+  "name": "webassembly",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "zuojj",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "wabt": "^1.0.0"
+  }
+}
