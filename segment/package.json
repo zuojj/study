@@ -1,0 +1,12 @@
+{
+  "name": "segment",
+  "version": "1.0.0",
+  "description": "segment with nodejs",
+  "main": "index.js",
+  "author": "zuojj",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "nodejieba": "^2.2.6"
+  }
+}
