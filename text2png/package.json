@@ -1,0 +1,16 @@
+{
+  "name": "text2png",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zuojj",
+  "license": "ISC",
+  "devDependencies": {
+    "png-to-svg": "^1.0.5",
+    "potrace": "^2.1.8",
+    "text2png": "^2.3.0"
+  }
+}
