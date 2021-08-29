@@ -25,7 +25,9 @@ class TodoList extends Component {
         this.setState((prevState) => ({
             list: [...prevState.list, prevState.value],
             value: ''
-        }));
+        }), () => {
+            console.log(this.ulist.querySelectorAll('li').length);
+        });
     }
 
     handleItemDelete(index) {
@@ -50,7 +52,7 @@ class TodoList extends Component {
                     <input id="insert" type="text" className="" value={this.state.value} onChange={this.handleInputChange}></input>
                     <button onClick={this.handleButtonClick}>提交</button>
                 </div>
-                <ul className="">{this.getTodoItem()}</ul>
+                <ul className="" ref={(ulist) => this.ulist = ulist }>{this.getTodoItem()}</ul>
             </Fragment>
         );
     }
