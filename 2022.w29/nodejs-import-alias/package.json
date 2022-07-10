@@ -1,0 +1,10 @@
+{
+  "name": "nodejs-import-alias",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "imports": {
+    "#util": "./util/index.js"
+  },
+  "license": "MIT"
+}
