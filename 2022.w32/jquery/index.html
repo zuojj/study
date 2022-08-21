@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<div id="result"></div>
+<script src="./jquery.js"></script>
+<script>
+(function() {
+  const xml = `<FareInterface>
+		<Input>
+			<HeaderIn>
+				<sysCode>ICS</sysCode>
+				<channelID>1E</channelID>
+				<channelType>B2C</channelType>
+				<Agency>
+					<officeId>SHE137</officeId>
+					<pid>11966</pid>
+					<city>BJS</city>
+				</Agency>
+				<language>CN</language>
+				<commandType>FS</commandType>
+				<terminalCarrier>CA</terminalCarrier>
+			</HeaderIn>
+			<Request>
+				<FlightShopRequest>
+					<OriginDestinationInfo>
+						<ori>CKG</ori>
+						<des>NKG</des>
+						<DepartureDate>31DEC23</DepartureDate>
+						<DepartureTime1>1200</DepartureTime1>
+					</OriginDestinationInfo>
+					<TravelPreferences>
+						<displayCurrCode>CNY</displayCurrCode>
+						<currCode>CNY</currCode>
+						<isDirectFlightOnly>true</isDirectFlightOnly>
+						<journeyType>OW</journeyType>
+						<isDealModel>false</isDealModel>
+						<passenger>
+							<number>1</number>
+							<type>AD</type>
+						</passenger>
+					</TravelPreferences>
+					<SpecificCarrierInfo>
+						<carrier>CA</carrier>
+						<accountCode>DKH001</accountCode>
+						<type>1</type>
+					</SpecificCarrierInfo>
+					<AvJourneys>
+						<AvJourney>
+							<RPH>01</RPH>
+							<dt>31DEC23</dt>
+							<week>MON</week>
+							<dep>CKG</dep>
+							<arr>NKG</arr>
+							<AvOpt>
+								<RPH>0101</RPH>
+								<Flt>
+									<RPH>010101</RPH>
+									<routno>4</routno>
+									<subid>1</subid>
+									<airline>CA</airline>
+									<fltNo>1352</fltNo>
+									<dep>CKG</dep>
+									<arr>NKG</arr>
+									<tpm>-1</tpm>
+									<dt>31DEC23</dt>
+									<week>MON</week>
+									<deptm>1230</deptm>
+									<arrtm>1540</arrtm>
+									<stop>0</stop>
+									<dev>320</dev>
+									<ASR>^</ASR>
+									<meal>B</meal>
+									<et>E</et>
+									<lnk>DS#</lnk>
+									<class>
+										<name>B</name>
+										<av>A</av>
+									</class>
+								</Flt>
+							</AvOpt>
+						</AvJourney>
+					</AvJourneys>
+					<Option>
+						<fcFeature>0</fcFeature>
+						<isAvNeeded>Y</isAvNeeded>
+						<isPSnNeeded>Y</isPSnNeeded>
+						<isPsAvBindsNeeded>Y</isPsAvBindsNeeded>
+						<isFaresNeeded>Y</isFaresNeeded>
+						<ruleTypeNeeded>Y</ruleTypeNeeded>
+						<format>NOR</format>
+						<lowestOrAll>A</lowestOrAll>
+						<isNotOpenedClassNeeded>S</isNotOpenedClassNeeded>
+						<fareSource>ALL</fareSource>
+					</Option>
+					<AdditionalShopRQData> </AdditionalShopRQData>
+				</FlightShopRequest>
+			</Request>
+		</Input>
+	</FareInterface>`;
+  $.ajax({
+    method: "POST",
+    url: "http://10.225.4.203:29527/price_util/send_request",
+    data: {
+      dtype: "0", 
+      wsl: "10.225.9.141:7990",
+      server: 'SHOPCOMM',
+      type: 'DShop',
+      encoding: 'GBK',
+      header: '08.1/CRS/FS//1/1660450540164/CRS/1E/A/12345/0/CN/0/RES/0//',
+      request: xml
+    }
+  })
+  .done(function( msg ) {
+    console.log(msg);
+    $('#result').html(msg);
+  });
+})();
+
+</script>
+</body>
+</html>
