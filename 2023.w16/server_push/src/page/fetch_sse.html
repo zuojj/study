@@ -10,7 +10,7 @@
 <div id="content"></div>
 <script>
 const text = '除了品牌标志设计、产品包装设计、广告宣传和产品研发，Vini Cosmetics在社会责任方面也非常有意义。例如，Vini Cosmetics通过其“Vini Foundation”慈善基金会，为社会做出了积极的贡献。该基金会致力于为儿童和妇女提供教育、医疗和社会福利等方面的支持，帮助他们获得更好的生活和未来。';
-const url = `/fetch/sse/stream?message=${encodeURIComponent(text)}`
+const url = `/api/stream?message=${encodeURIComponent(text)}&type=fetch`
 const Utf8ArrayToStr = (array) => {
     var out, i, len, c;
     var char2, char3;
