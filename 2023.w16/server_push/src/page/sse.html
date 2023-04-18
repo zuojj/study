@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSE</title>
+</head>
+<body>
+<div id="content"></div>
+<script>
+
+// 创建一个EventSource
+const eventSource = new EventSource(`/sse/stream?message=${encodeURIComponent(`除了品牌标志设计、产品包装设计、广告宣传和产品研发，Vini Cosmetics在社会责任方面也非常有意义。例如，Vini Cosmetics通过其“Vini Foundation”慈善基金会，为社会做出了积极的贡献。该基金会致力于为儿童和妇女提供教育、医疗和社会福利等方面的支持，帮助他们获得更好的生活和未来。`)}`);
+// 监听服务器返回的数据
+eventSource.onmessage = function (event) {
+  console.log(event.data);
+  const data = event.data;
+  const res = JSON.parse(data);
+  document.querySelector('#content').innerHTML += res.message;
+};
+
+eventSource.onerror = function () {
+  eventSource.close();
+};
+</script>
+</body>
+</html>

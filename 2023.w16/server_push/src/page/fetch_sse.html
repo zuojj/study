@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FETCH_SSE</title>
+</head>
+<body>
+<div id="content"></div>
+<script>
+const text = '除了品牌标志设计、产品包装设计、广告宣传和产品研发，Vini Cosmetics在社会责任方面也非常有意义。例如，Vini Cosmetics通过其“Vini Foundation”慈善基金会，为社会做出了积极的贡献。该基金会致力于为儿童和妇女提供教育、医疗和社会福利等方面的支持，帮助他们获得更好的生活和未来。';
+const url = `/fetch/sse/stream?message=${encodeURIComponent(text)}`
+const Utf8ArrayToStr = (array) => {
+    var out, i, len, c;
+    var char2, char3;
+
+    out = "";
+    len = array.length;
+    i = 0;
+    while(i < len) {
+    c = array[i++];
+    switch(c >> 4)
+    { 
+      case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7:
+        // 0xxxxxxx
+        out += String.fromCharCode(c);
+        break;
+      case 12: case 13:
+        // 110x xxxx   10xx xxxx
+        char2 = array[i++];
+        out += String.fromCharCode(((c & 0x1F) << 6) | (char2 & 0x3F));
+        break;
+      case 14:
+        // 1110 xxxx  10xx xxxx  10xx xxxx
+        char2 = array[i++];
+        char3 = array[i++];
+        out += String.fromCharCode(((c & 0x0F) << 12) |
+                       ((char2 & 0x3F) << 6) |
+                       ((char3 & 0x3F) << 0));
+        break;
+    }
+    }
+
+    return out;
+}
+const fetchStream = (url, params) => {
+  const { onmessage, onclose, ...otherParams } = params;
+  const push = async (controller, reader) => {
+    const { value, done } = await reader.read();
+    if (done) {
+      controller.close();
+      onclose?.();
+    } else {
+      onmessage?.(Utf8ArrayToStr(value));
+      controller.enqueue(value);
+      push(controller, reader);
+    }
+  };
+  // 发送请求
+  return fetch(url, otherParams)
+    .then((response) => {
+      // 以ReadableStream解析数据
+      const reader = response.body.getReader();
+      const stream = new ReadableStream({
+        start(controller) {
+          push(controller, reader);
+        },
+      });
+      return stream;
+    })
+    .then((stream) => new Response(stream, { headers: { 'Content-Type': 'text/html' } }).text());
+};
+fetchStream(url, {
+  method: 'GET',
+  headers: {
+    'accept': 'text/event-stream',
+    'Content-Type': 'application/json',
+  },
+  onmessage: (data) => {
+    console.log(data);
+    const res = JSON.parse(data);
+    document.querySelector('#content').innerHTML += res.message;
+  },
+});
+</script>
+</body>
+</html>
